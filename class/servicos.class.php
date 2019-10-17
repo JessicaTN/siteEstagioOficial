@@ -6,6 +6,9 @@
 	private $data;
 	private $foto;
 	private $texto;
+
+	private $conexao;
+	private $tabela;
 	
 	public function __construct(){
 
@@ -29,6 +32,7 @@
 
 	public function AdicionarServico(){
 				$sql="INSERT INTO $this->tabela (titulo, data, foto, texto) VALUES ('$this->titulo','$this->data','$this->foto','$this->texto')";
+				echo $sql;
 				$resultado= mysqli_query($this->conexao,$sql);
 				return $resultado;
 
@@ -46,7 +50,7 @@
 				$objservisos->data=$res['data'];
 				$objservisos->foto=$res['foto'];
 				$objservisos->texto=$res['texto'];
-				$objservisos->tipo_servico_idtipo_servico=$res['tipo_servico_idtipo_servico'];
+				$objservisos->tipo_servico_idtipo_servico=$res['idtipo_servico'];
 				
 				$retorno[]=$objservicos;
 			}
