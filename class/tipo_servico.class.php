@@ -50,13 +50,13 @@
                     $res= mysqli_fetch_all($resultado);
 
                     //var_dump($res);
-                    // while ($res= mysqli_fetch_assoc($resultado)){
-                    //     $objtipo_servico= new tipo_servico();
-                    //     $objtipo_servico->idtipo_servico=$res['idtipo_servico'];
-                    //     $objtipo_servico->nome=$res["nome"];
+                     while ($res= mysqli_fetch_assoc($resultado)){
+                        $objtipo_servico= new tipo_servico();
+                        $objtipo_servico->idtipo_servico=$res['idtipo_servico'];
+                        $objtipo_servico->nome=$res["nome"];
 
-                    //     $retorno[]=$objtipo_servico;
-                    // }
+                        $retorno[]=$objtipo_servico;
+                    }
                     return $res;
                 }
 

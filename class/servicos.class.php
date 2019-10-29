@@ -50,7 +50,7 @@
 				$objservisos->data=$res['data'];
 				$objservisos->foto=$res['foto'];
 				$objservisos->texto=$res['texto'];
-				$objservisos->tipo_servico_idtipo_servico=$res['idtipo_servico'];
+				$objservisos->idtipo_servico=$res['idtipo_servico'];
 				
 				$retorno[]=$objservicos;
 			}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Out-2019 às 02:08
+-- Tempo de geração: 17-Out-2019 às 02:17
 -- Versão do servidor: 10.3.15-MariaDB
 -- versão do PHP: 7.3.6
 
@@ -48,17 +48,24 @@ INSERT INTO `noticias` (`idnoticias`, `titulo_da_noticia`, `foto`, `data`, `text
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `serviços`
+-- Estrutura da tabela `servicos`
 --
 
-CREATE TABLE `serviços` (
+CREATE TABLE `servicos` (
   `idservicos` int(11) NOT NULL,
   `data` date DEFAULT NULL,
   `titulo` varchar(100) DEFAULT NULL,
   `texto` varchar(2000) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
-  `tipo_servico_idtipo_servico` int(11) NOT NULL
+  `idtipo_servico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`idservicos`, `data`, `titulo`, `texto`, `foto`, `idtipo_servico`) VALUES
+(4, '2019-10-02', 'Agenda em Santa Maria', 'Na manhã de hoje nos deslocamos até a cidade de Santa Maria para uma agenda com o Prefeito.', 'fgfchfghgj dfgdfgfd dgsdgsdg', 2);
 
 -- --------------------------------------------------------
 
@@ -72,6 +79,14 @@ CREATE TABLE `tipo_servico` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Extraindo dados da tabela `tipo_servico`
+--
+
+INSERT INTO `tipo_servico` (`idtipo_servico`, `nome`) VALUES
+(1, 'Emenda'),
+(2, 'Emenda');
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -82,11 +97,11 @@ ALTER TABLE `noticias`
   ADD PRIMARY KEY (`idnoticias`);
 
 --
--- Índices para tabela `serviços`
+-- Índices para tabela `servicos`
 --
-ALTER TABLE `serviços`
+ALTER TABLE `servicos`
   ADD PRIMARY KEY (`idservicos`),
-  ADD KEY `fk_Serviços_Tipo_servico_idx` (`tipo_servico_idtipo_servico`);
+  ADD KEY `fk_Servicos_Tipo_servico_idx` (`idtipo_servico`);
 
 --
 -- Índices para tabela `tipo_servico`
@@ -105,26 +120,26 @@ ALTER TABLE `noticias`
   MODIFY `idnoticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `serviços`
+-- AUTO_INCREMENT de tabela `servicos`
 --
-ALTER TABLE `serviços`
-  MODIFY `idservicos` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `servicos`
+  MODIFY `idservicos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tipo_servico`
 --
 ALTER TABLE `tipo_servico`
-  MODIFY `idtipo_servico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtipo_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
 --
 
 --
--- Limitadores para a tabela `serviços`
+-- Limitadores para a tabela `servicos`
 --
-ALTER TABLE `serviços`
-  ADD CONSTRAINT `fk_Serviços_Tipo_servico` FOREIGN KEY (`tipo_servico_idtipo_servico`) REFERENCES `tipo_servico` (`idtipo_servico`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `servicos`
+  ADD CONSTRAINT `fk_Servicos_Tipo_servico` FOREIGN KEY (`idtipo_servico`) REFERENCES `tipo_servico` (`idtipo_servico`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
