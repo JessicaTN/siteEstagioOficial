@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Out-2019 às 02:17
--- Versão do servidor: 10.3.15-MariaDB
--- versão do PHP: 7.3.6
+-- Generation Time: 28-Nov-2019 às 21:46
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `meubanco`
+-- Database: `meubanco`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `administrador`
+--
+
+CREATE TABLE `administrador` (
+  `id_administrador` int(11) NOT NULL,
+  `email` varchar(60) COLLATE utf8_bin NOT NULL,
+  `senha` varchar(35) COLLATE utf8_bin NOT NULL,
+  `nome` varchar(60) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `administrador`
+--
+
+INSERT INTO `administrador` (`id_administrador`, `email`, `senha`, `nome`) VALUES
+(1, 'admin@admin', 'admin', 'diego');
 
 -- --------------------------------------------------------
 
@@ -41,9 +61,11 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`idnoticias`, `titulo_da_noticia`, `foto`, `data`, `texto`) VALUES
-(1, 'agenda em POA', 'GOLLL', '2019-10-01', 'euwgugtf euguegfr iehfihwef ihfihiwfh wfwf'),
+(1, 'agenda em Porto Alegre', 'GOLLL', '2019-10-01', ' euguegfr iehfihwef ihfihiwfh wfwf'),
 (2, 'reryey', 'ghasas', '2019-10-01', 'gfdgdf gdfg fgdfgd'),
-(3, 'reryey', 'ghasas', '2019-10-01', 'gfdgdf gdfg fgdfgd');
+(3, 'reryey', 'ghasas', '2019-10-01', 'gfdgdf gdfg fgdfgd'),
+(4, 'Agenda em Caxias', 'Find out more at Beechtown Bikers@beechtownbikerswww.reallygreatsite.com.png', '2019-11-06', 'hfshdf sidofs ifs oishd ifsh'),
+(5, 'adsf', '', '2019-11-05', 'hoje jsjsjsjsjsjjjsghgghg hhhjhj');
 
 -- --------------------------------------------------------
 
@@ -57,7 +79,7 @@ CREATE TABLE `servicos` (
   `titulo` varchar(100) DEFAULT NULL,
   `texto` varchar(2000) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
-  `idtipo_servico` int(11) NOT NULL
+  `idtipo_servico` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,7 +87,8 @@ CREATE TABLE `servicos` (
 --
 
 INSERT INTO `servicos` (`idservicos`, `data`, `titulo`, `texto`, `foto`, `idtipo_servico`) VALUES
-(4, '2019-10-02', 'Agenda em Santa Maria', 'Na manhã de hoje nos deslocamos até a cidade de Santa Maria para uma agenda com o Prefeito.', 'fgfchfghgj dfgdfgfd dgsdgsdg', 2);
+(21, '2019-10-28', 'jessica', 'eejddjd', '57503296_1239369959571146_766634207588909056_n.jpg', 'Emenda'),
+(23, '2019-10-28', 'Processo Seletivo Educação', 'aprovada hoje ', '54435982_1221268298047979_8264139916481396736_n.jpg', 'lei');
 
 -- --------------------------------------------------------
 
@@ -84,62 +107,65 @@ CREATE TABLE `tipo_servico` (
 
 INSERT INTO `tipo_servico` (`idtipo_servico`, `nome`) VALUES
 (1, 'Emenda'),
-(2, 'Emenda');
+(2, 'lei'),
+(3, 'Agenda'),
+(4, 'Viagem');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `noticias`
+-- Indexes for table `administrador`
+--
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`id_administrador`);
+
+--
+-- Indexes for table `noticias`
 --
 ALTER TABLE `noticias`
   ADD PRIMARY KEY (`idnoticias`);
 
 --
--- Índices para tabela `servicos`
+-- Indexes for table `servicos`
 --
 ALTER TABLE `servicos`
-  ADD PRIMARY KEY (`idservicos`),
-  ADD KEY `fk_Servicos_Tipo_servico_idx` (`idtipo_servico`);
+  ADD PRIMARY KEY (`idservicos`);
 
 --
--- Índices para tabela `tipo_servico`
+-- Indexes for table `tipo_servico`
 --
 ALTER TABLE `tipo_servico`
   ADD PRIMARY KEY (`idtipo_servico`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `noticias`
+-- AUTO_INCREMENT for table `administrador`
+--
+ALTER TABLE `administrador`
+  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `idnoticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idnoticias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `servicos`
+-- AUTO_INCREMENT for table `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `idservicos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idservicos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de tabela `tipo_servico`
+-- AUTO_INCREMENT for table `tipo_servico`
 --
 ALTER TABLE `tipo_servico`
-  MODIFY `idtipo_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `servicos`
---
-ALTER TABLE `servicos`
-  ADD CONSTRAINT `fk_Servicos_Tipo_servico` FOREIGN KEY (`idtipo_servico`) REFERENCES `tipo_servico` (`idtipo_servico`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `idtipo_servico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

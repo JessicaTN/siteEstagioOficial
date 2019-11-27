@@ -13,21 +13,24 @@ $b = $objtipo_servico->listar();
     <body>
     <center> 
             <h1>Cadastro de Serviços</h1>
-            <form action="adicionar_agora.php" method="POST">
+            <form action="adicionar_agora.php" method="POST" enctype="multipart/form-data">
                 Titulo: <input type="text" name="titulo"> <br>
                 Data:<input type="date" name="data"><br>
-                Foto:<input type="text" name="foto"><br>
+                Foto:<input type="file" name="foto"><br>
                 Texto: <input type="text" name="texto"><br>
-                idtipo_servico:<select name="idtipo_servico">
-                <option value="">Selecionar</option>
-                <?php
+				
+				<select name="idtipo_servico">
+                <option value="" disabled>Selecionar</option>
+				
+				<?php
+				
+					foreach ($b as $linha){
+						echo "<option value='$linha->nome'>$linha->nome</option>";
+					}
+					
+				?>
+				</select>
 
-                    foreach ($b as list($index, $valor))
-                    {
-                        echo  "<option value='".$index."'>".$valor."</option>";
-                    }
-                ?>
-            </select>
                 <br>
                 <input type="submit" name="cadastrar" value="cadastrar">
             </form>

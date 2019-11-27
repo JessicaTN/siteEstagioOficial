@@ -43,11 +43,12 @@
                 public function listar(){
 
                     $sql="SELECT * FROM $this->tabela";
+					//echo $sql;
                     $resultado= mysqli_query($this->conexao,$sql);
 
                     $retorno = null;
 
-                    $res= mysqli_fetch_all($resultado);
+                   // $res= mysqli_fetch_all($resultado);
 
                     //var_dump($res);
                      while ($res= mysqli_fetch_assoc($resultado)){
@@ -57,7 +58,7 @@
 
                         $retorno[]=$objtipo_servico;
                     }
-                    return $res;
+                    return $retorno;
                 }
 
                 public function retornounico(){

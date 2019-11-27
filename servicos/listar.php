@@ -24,7 +24,7 @@ foreach($listar as $linha){
     echo "<td>".$linha->idservicos."</td>";
     echo "<td>".$linha->titulo."</td>";
     echo "<td>".$linha->data."</td>";
-    echo "<td>".$linha->foto."</td>";
+    echo "<td><img src='../img/".$linha->foto."' width=100px></td>";
     echo "<td>".$linha->texto."</td>";
     echo "<td>".$linha->idtipo_servico."</td>";
 	

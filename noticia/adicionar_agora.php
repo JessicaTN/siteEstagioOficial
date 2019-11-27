@@ -4,8 +4,21 @@ include_once '../class/usuario.class.php';
 $objnoticia= new Noticia();
 $objnoticia->titulo_da_noticia=$_POST["titulo_da_noticia"];
 $objnoticia->data=$_POST["data"];
-$objnoticia->foto=$_POST["foto"];
+
 $objnoticia->texto=$_POST["texto"];
+
+$nomeimg= $_FILES['foto']['name'];
+$nomeTemporario= $_FILES['foto']['tmp_name'];
+$destino= '../img/'.$nomeimg;
+
+if(move_uploaded_file($nomeTemporario,$destino))
+{
+	echo "<center>Imagen enviada!</center>";
+}
+else{
+    "<center>Error al insertar imagen</center>";
+}
+$objnoticia->foto = $nomeimg;
 
 $retorno=$objnoticia->AdicionarNoticia();
 
