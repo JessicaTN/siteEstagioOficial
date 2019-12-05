@@ -1,6 +1,7 @@
 <?php
 
 include_once '../class/tipo_servico.class.php';
+include_once '../templateA/topo.php';
 
 $objtipo_servico= new tipo_servico();
 $listar=$objtipo_servico->listar();
@@ -27,4 +28,5 @@ foreach($listar as $linha){
 
     echo"</tr>";
 }
+include_once '../templateA/rodape.php';
 ?>

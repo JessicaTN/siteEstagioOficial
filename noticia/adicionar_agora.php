@@ -1,5 +1,7 @@
 <?php
 include_once '../class/usuario.class.php';
+include_once '../templateA/topo.php';
+
 
 $objnoticia= new Noticia();
 $objnoticia->titulo_da_noticia=$_POST["titulo_da_noticia"];

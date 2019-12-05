@@ -1,5 +1,5 @@
 <?php
-
+include_once '../templateA/topo.php';
 include_once '../class/usuario.class.php';
 
 $objnoticia= new noticia();
@@ -24,7 +24,7 @@ foreach($listar as $linha){
     echo "<td>".$linha->idnoticias."</td>";
     echo "<td>".$linha->titulo_da_noticia."</td>";
     echo "<td>".$linha->data."</td>";
-    echo "<td>".$linha->foto."</td>";
+    echo "<td><img src='../img/".$linha->foto."' width=100px></td>";
     echo "<td>".$linha->texto."</td>";
     echo "<td> <a href='editar.php?idnoticias=".$linha->idnoticias."'>Editar</a></td>";
     echo "<td> <a href='excluir.php?idnoticias=".$linha->idnoticias."'>Excluir</a></td>";
@@ -35,3 +35,6 @@ foreach($listar as $linha){
 
 </tbody>
 </table>
+<?php
+include_once '../templateA/rodape.php';
+?>

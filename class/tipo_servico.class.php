@@ -73,7 +73,22 @@
 
                         $retorno= $objtipo_servico;
                     }
-                    $retorno=$objtipo_servico;
+                    return $retorno;
                 }
+				
+				public function editar(){
+			$sql="UPDATE $this->tabela SET nome='$this->nome' WHERE idtipo_servico=$this->idtipo_servico";
+
+			$resultado=mysqli_query($this->conexao, $sql);
+			return $resultado;
+		}
+		
+		public function excluir(){
+			$sql="DELETE FROM  $this->tabela WHERE idtipo_servico= $this->idtipo_servico";
+
+			$resultado=mysqli_query($this->conexao, $sql);
+			return $resultado;
+
+		}
 
     }

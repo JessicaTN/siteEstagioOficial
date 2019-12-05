@@ -5,7 +5,7 @@ include_once '../class/administrador.class.php';
 print_r($_POST);
 $objadministrador = new administrador();
 $objadministrador->email=$_POST['email'];
-$objadministrador->senha=$_POST['senha'];
+$objadministrador->senha=sha1($_POST['senha']);
 
 $resultado= $objadministrador->login();
 var_dump($resultado);
@@ -17,7 +17,7 @@ if($resultado){
 	$_SESSION['nome']= $resultado->nome;
 	//$_SESSION['login']=true;
 
-	header("Location:../servicos/listar.php");
+	header("Location:../noticia/listar.php");
 	
 	echo "logado!";
 }

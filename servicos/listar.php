@@ -1,6 +1,7 @@
 <?php
 
 include_once '../class/servicos.class.php';
+include_once '../templateA/topo.php';
 
 $objservicos= new Servicos();
 $listar=$objservicos->listar();
@@ -33,4 +34,6 @@ foreach($listar as $linha){
 
     echo"</tr>";
 }
+
+include_once '../templateA/rodape.php';
 ?>

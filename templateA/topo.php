@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['administrador'])){
-    header("Location:../cozastore/cozastore/login1.php");
+
+if(!isset($_SESSION['id_administrador'])){
+    header("Location:../login/login.php");
 }
 
 ?>
@@ -37,7 +38,7 @@ if(!isset($_SESSION['administrador'])){
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Ultimo acesso : 18 Março 2019 &nbsp; <a href="../cozastore/cozastore/sair.php" class="btn btn-danger square-btn-adjust">Sair</a> </div>
+font-size: 16px;"> Ultimo acesso: 2019 &nbsp; <a href="../login/deslogar.php" class="btn btn-danger square-btn-adjust">Sair</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -51,44 +52,31 @@ font-size: 16px;"> Ultimo acesso : 18 Março 2019 &nbsp; <a href="../cozastore/c
                     
 					  
                      <li>
-                         <a  href="../cliente/listar.php"><i class="fa fa-desktop fa-3x"></i> Listar Clientes</a>
-                         <a href="../cliente/adicionar.php"><i class="fa fa-desktop fa-3x"></i> Adicionar Clientes</a>
-                         
+                         <a  href="../noticia/listar.php"><i class="fa fa-desktop fa-3x"></i> Listar Noticias</a>
+                         <a href="../noticia/adicionar.php"><i class="fa fa-desktop fa-3x"></i> Adicionar Noticias</a>
+                         <a href="../noticia/editar.php"><i class="fa fa-desktop fa-3x"></i> Editar Noticias</a>
                     </li>
                    
 						   <li  >
-                                                       <a   href="../compras/listar.php"><i class="fa fa-bar-chart-o fa-3x"></i>Compras</a>
+                                                       <a   href="../servicos/listar.php"><i class="fa fa-bar-chart-o fa-3x"></i>Serviços</a>
                     </li>	
                       <li  >
-                          <a  href="../produto/listar.php"><i class="fa fa-table fa-3x"></i> Listar Produtos</a>
-                          <a  href="../produto/adicionar.php"><i class="fa fa-table fa-3x"></i>+ Produtos</a>
+                          
+                          <a  href="../servicos/adicionar.php"><i class="fa fa-table fa-3x"></i>+ Serviços</a>
+                          <a  href="../servicos/editar.php"><i class="fa fa-table fa-3x"></i> Editar Serviço</a>
                     </li>
                     				
 					<li  >
-                                            <a  href="../categorias/listar.php"><i class="fa fa-table fa-3x"></i> Categoria</a>
+                                            <a  href="../tipo_servico/listar.php"><i class="fa fa-table fa-3x"></i> Tipo de Serviços</a>
                                             
                     </li>
                     	<li  >
-                            <a  href="../categorias/adicionar.php"><i class="fa fa-table fa-3x"></i> + Categorias</a>
+                            <a  href="../tipo_servico/adicionar.php"><i class="fa fa-table fa-3x"></i> + Tipo serviços</a>
+                            <a  href="../tipo_servico/editar.php"><i class="fa fa-table fa-3x"></i> Editar Tipo serviços</a>
                                             
                     </li>
 						
-					<li  >
-                                            <a  href="../cor/listar.php"><i class="fa fa-square-o fa-3x"></i> Cor</a>
-                                            
-                    </li>	                   
-                   					  
-                  <li  >
-                      <a  href="../cor/adicionar.php"><i class="fa fa-square-o fa-3x"></i>+ Cor</a>
-                    </li>	
-                    
-                    <li  >
-                      <a  href="../forma_de_pagamento.php/listar.php"><i class="fa fa-square-o fa-3x"></i> Forma de Pagamento</a>
-                    </li>
-                    
-                    <li  >
-                        <a  href="../forma_de_pagamento.php/adicionar.php"><i class="fa fa-square-o fa-3x"></i> + Forma de pagamento</a>
-                    </li>
+					
                 </ul>
                
             </div>

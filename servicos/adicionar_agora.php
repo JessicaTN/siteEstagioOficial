@@ -1,6 +1,7 @@
 <?php
 
 include_once '../class/servicos.class.php';
+include_once '../templateA/topo.php';
 
 $objservico= new Servicos();
 $objservico->titulo=$_POST["titulo"];

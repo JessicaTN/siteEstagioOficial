@@ -1,4 +1,5 @@
 <?php
+include_once '../templateA/topo.php';
 ?>
 <html>
     <head></head>
@@ -11,3 +12,6 @@
         </form>
     </body>
 </html>
+<?php
+include_once '../templateA/rodape.php';
+?>

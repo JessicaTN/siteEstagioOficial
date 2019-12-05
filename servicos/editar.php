@@ -3,6 +3,7 @@
 if(!isset($_GET['idservicos'])){
     header("Location:listar.php");
 }
+include_once '../templateA/topo.php';
 include_once'../class/servicos.class.php';
 include_once'../class/tipo_servico.class.php';
 
@@ -39,4 +40,9 @@ $resultado = $objtipo_servico->listar();
 
     <input type="hidden" name="idservicos" value="<?php echo $retorno->idservicos;?>"/><br/>
     <input type="submit"/>
+	
+	</form>
+	<?php
+	include_once '../templateA/rodape.php';
+	?>
 	
